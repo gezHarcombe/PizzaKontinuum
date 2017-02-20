@@ -3,6 +3,7 @@ import numpy as np
 from funcs import count_tomatoes, count_mushrooms
 from data import L
 
+def ratio(arr):
 """ Function takes a slice and returns ratio of the rarer ingredient to 
     the more abundant ingredient
 
@@ -11,11 +12,9 @@ from data import L
 
     Input argument is an array, output is a float
 """
-
-def ratio(arr):
     toms = count_tomatoes(arr)
     mush = count_mushrooms(arr)
-        
+
     if(toms > mush):
         returnval = mush/toms
     elif(mush > toms):
@@ -25,33 +24,19 @@ def ratio(arr):
 
     return returnval
 
+
+def is_too_small(arr):
 """ Determine if a slice is too small, so that recursive searching can be
     terminated
-        
+
     The pizza is deemed too small if there are either too few tomatoes or too
     few mushrooms
 
     Function returns True if the pizza is too small, and False otherwise
 """
-
-def is_too_small(arr):
-        
     if count_tomatoes(arr) < L:
         return True
     elif count_mushrooms(arr) < L:
         return True
     else:
         return False
-
-
-""" TEST CASE FOR ratio(arr)
-
-print(ratio(A))
-"""
-""" TEST CASE FOR is_too_small(arr)
-
-print(is_too_small(A))
-
-small_slice = np.array([0, 0, 1])
-print(is_too_small(small_slice));
-"""
