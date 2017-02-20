@@ -5,8 +5,7 @@ from knut import divide
 
 pizza = A.copy()
 init_pos = Pos(0, 0, R-1, C-1)
-slices = []
-divide(pizza, init_pos, slices)
+slices = divide(pizza, init_pos)
 
 print(len(slices))
 for s in slices: 

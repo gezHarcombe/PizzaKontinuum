@@ -3,7 +3,7 @@ from gez import is_too_small
 from brett import get_slice_pos
 from liam import slice_pizza
 
-def divide(pizza, pos, slices):
+def divide(pizza, pos ):
     """
     divide(pizza, pos, slices)
 
@@ -14,15 +14,13 @@ def divide(pizza, pos, slices):
 
     recursive pizza slicing according to minimum ingredients L and maximum cells H
     """
-
     # Pizza is small enough and has enough ingredients, save it!
     if is_valid(pizza):
-        slices.append(pos)
-        return 
+        return [pos] 
 
     # Pizza is too small to be a slice, give up.
     elif is_too_small(pizza):
-        return 
+        return []
 
     # Pizza needs to be divided further
     else:
@@ -33,5 +31,7 @@ def divide(pizza, pos, slices):
         pizza1, pizza2, pos1, pos2 = slice_pizza(pizza, pos, idx, is_rows=side)
 
         # Recursify ;-) 
-        divide(pizza1, pos1, slices)
-        divide(pizza2, pos2, slices)
+        slices = []
+        slices.extend(divide(pizza1,pos1))
+        slices.extend(divide(pizza2,pos2))
+        return slices
