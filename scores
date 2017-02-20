@@ -1,0 +1,11 @@
+## Brett: Greedy first attempt ##
+> example - 0.8
+> small - 0.952380952381
+> medium - 0.90918
+> big - 0.682865
+
+## Brett: Greedy swapped axis ##
+> example - 1.0
+> small - 1.0
+> medium - 0.90772
+> big - 0.682069
