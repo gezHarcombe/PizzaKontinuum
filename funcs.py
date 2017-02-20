@@ -21,3 +21,9 @@ def read_pizza(filename):
     f.close()
 
     return R, C, L, H, A
+
+def count_tomatoes(arr):
+    return sum(arr)
+
+def count_mushrooms(arr):
+    return arr.size - sum(arr)
