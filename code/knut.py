@@ -25,7 +25,9 @@ def divide(pizza, pos ):
     # Pizza needs to be divided further
     else:
         # Get the side along which slicing should occur, and index of where to slice
-        side, idx = get_slice_pos(pizza)
+        side, idx, to_bin = get_slice_pos(pizza)
+        if to_bin:
+            return []
 
         # Slice! Retrieve two new pizzas and their relpositions to the mothership
         pizza1, pizza2, pos1, pos2 = slice_pizza(pizza, pos, idx, is_rows=side)

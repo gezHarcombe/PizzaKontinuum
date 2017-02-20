@@ -28,7 +28,14 @@ def get_slice_pos(arr):
             best_cut = i
             is_rows = False
 
-    return is_rows, best_cut
+    # deal with the case where every split scored zero, and the array should be binned
+    to_bin = False
+    if best_score == 0:
+        is_rows = True
+        best_cut = 0
+        to_bin = True
+
+    return is_rows, best_cut, to_bin
 
 
 
