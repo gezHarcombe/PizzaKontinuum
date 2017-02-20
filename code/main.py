@@ -10,4 +10,4 @@ divide(pizza, pos, slices)
 
 print(len(slices))
 for s in slices: 
-    s.print()
+    s.write()
