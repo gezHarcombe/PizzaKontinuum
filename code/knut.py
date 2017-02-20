@@ -1,0 +1,37 @@
+from funcs import import is_valid
+from gez import is_too_small
+from brett import get_slice_pos
+from splitting import slice_pizza
+
+def divide(pizza, pos, slices):
+    """
+    divide(pizza, pos, slices)
+
+    input: 
+        pizza:  np.array() of doubles containing ones (T), zeros (M) (or small negs)
+        pos:    array of positions relative to the mothership pizza, r1, r2, c1, c2
+        slices: list containing position array which describe slices
+
+    recursive pizza slicing according to minimum ingredients L and maximum cells H
+    """
+
+    # Pizza is small enough and has enough ingredients, save it!
+    if is_valid(pizza):
+        slices.append(pos)
+        return 
+
+    # Pizza is too small to be a slice, give up.
+    elif is_too_small(pizza):
+        return 
+
+    # Pizza needs to be divided further
+    else:
+        # Get the side along which slicing should occur, and index of where to slice
+        side, idx = get_slice_pos(pizza)
+
+        # Slice! Retrieve two new pizzas and their relative positions to the mothership
+        pizza1, pizza2, pos1, pos2 = slice_pizza(pizza)
+
+        # Recursify ;-) 
+        divide(pos1, pizza1, slices)
+        divide(pos2, pizza2, slices)
