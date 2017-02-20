@@ -17,7 +17,7 @@ def read_pizza(filename):
             if row[j] == 'T':
                 A[i,j] = 1
             else:
-                A[i,j] = 2
+                A[i,j] = 0
     f.close()
 
     return R, C, L, H, A
