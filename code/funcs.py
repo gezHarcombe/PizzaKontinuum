@@ -22,14 +22,6 @@ def read_pizza(filename):
 
     return R, C, L, H, A
 
-def remove_slice_copy( pizza, rows, cols):
-    result = np.copy(pizza)
-    result[ rows[0]:rows[1]+1, cols[0]:cols[1]+1 ]= -1e-50
-    return result
-
-def remove_slice(pizza,rows,cols):
-    pizza[ rows[0]:rows[1]+1, cols[0]:cols[1]+1 ]= -1e-50
-    return result
 
 def count_tomatoes(arr):
     return np.sum(arr)
