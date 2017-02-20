@@ -1,7 +1,7 @@
 from funcs import *
 from gez import *
 
-""" Iterate over the different possible slices of the long side of the array.
+""" Iterate over the different possible slices for both sides of the array.
     Returns the axis being sliced along and the index of the best slice.
 
     The index is such that arr(0:index,:) gives the left slice and
@@ -9,23 +9,30 @@ from gez import *
 """
 def get_slice_pos(arr):
 
-    if arr.shape[0] > arr.shape[1]:
-        long_side = 0
-        length = arr.shape[0]
-        width = arr.shape[1]
-    else:
-        long_side = 1
-        length = arr.shape[1]
-        width = arr.shape[0]
+    length = arr.shape[0]
+    width = arr.shape[1]
 
     best_score = 0
+    # loop over all axis=0 sweeps
     for i in range(1,length):
-        score = get_slice_cut_score(arr, length, i, long_side)
+        print(i)
+        score = get_slice_cut_score(arr, length, i, 0)
+        print(score)
         if score > best_score:
             best_score = score
             best_cut = i
+            best_axis = 0
+    # loop over all axis=1 sweeps
+    for i in range(1,width):
+        print(i)
+        score = get_slice_cut_score(arr, width, i, 1)
+        print(score)
+        if score > best_score:
+            best_score = score
+            best_cut = i
+            best_axis = 1
 
-    return long_side, i
+    return best_axis, best_cut
 
 
 
