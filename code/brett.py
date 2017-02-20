@@ -15,6 +15,8 @@ def get_slice_pos(arr):
     best_score = 0
     # loop over all axis=0 sweeps
     for i in range(1,length):
+        if best_score == 100:
+            break
         score = get_slice_cut_score(arr, length, i, 0)
         if score > best_score:
             best_score = score
@@ -22,6 +24,8 @@ def get_slice_pos(arr):
             is_rows = True
     # loop over all axis=1 sweeps
     for i in range(1,width):
+        if best_score == 100:
+            break
         score = get_slice_cut_score(arr, width, i, 1)
         if score > best_score:
             best_score = score
@@ -48,6 +52,9 @@ def get_slice_cut_score(arr, length, slice_point, axis):
     else:
         left = arr[ :, :slice_point]
         right = arr[ :, slice_point:]
+
+    if is_valid(left) or is_valid(right):
+        return 100;
 
     # check if either half of the split is too small to possibly be a valid slice
     # and give a score of zero accordingly
