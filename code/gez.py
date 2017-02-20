@@ -3,6 +3,18 @@ import numpy as np
 from funcs import count_tomatoes, count_mushrooms
 from data import L
 
+class pos:
+    """ position data struction - r1, c1, r2, c2
+        Usage:
+        test = pos(0,0,1,2)
+        a = test.r1
+    """
+    def __init__(self, r1a, c1a, r2a, c2a):
+        self.r1 = r1a
+        self.c1 = c1a
+        self.r2 = r2a
+        self.c2 = c2a
+
 def ratio(arr):
     """ Function takes a slice and returns ratio of the rarer ingredient to
     the more abundant ingredient
