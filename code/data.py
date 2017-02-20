@@ -1,3 +1,5 @@
+import os
+import sys
 import numpy as np
 
 def read_pizza(filename):
@@ -22,7 +24,10 @@ def read_pizza(filename):
 
     return R, C, L, H, A
 
-R,C,L,H,A = read_pizza('../pizzas/example.in')
+""" $ python main.py PATHTOPIZZA """
+path = sys.argv[1]
+path = '../pizzas/' + path + '.in'
+R,C,L,H,A = read_pizza(path)
 
 """ 
     At the top of your file, write:
