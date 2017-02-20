@@ -21,3 +21,8 @@ def read_pizza(filename):
     f.close()
 
     return R, C, L, H, A
+
+def remove_slice( pizza, rows, cols):
+    result = np.copy(pizza)
+    result[ rows[0]:rows[1], cols[0]:cols[1]] = 0
+    return result
