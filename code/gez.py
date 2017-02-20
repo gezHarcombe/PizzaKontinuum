@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from funcs import count_tomatoes, count_mushrooms, read_pizza
-from main import R, C, L, H, A
 
 """ Function takes a slice and returns ratio of the rarer ingredient to 
     the more abundant ingredient
