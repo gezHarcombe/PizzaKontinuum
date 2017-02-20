@@ -1,7 +1,7 @@
-from funcs import import is_valid
+from funcs import is_valid
 from gez import is_too_small
 from brett import get_slice_pos
-from splitting import slice_pizza
+from liam import slice_pizza
 
 def divide(pizza, pos, slices):
     """
@@ -18,6 +18,7 @@ def divide(pizza, pos, slices):
     # Pizza is small enough and has enough ingredients, save it!
     if is_valid(pizza):
         slices.append(pos)
+        print(slices)
         return 
 
     # Pizza is too small to be a slice, give up.
@@ -29,8 +30,8 @@ def divide(pizza, pos, slices):
         # Get the side along which slicing should occur, and index of where to slice
         side, idx = get_slice_pos(pizza)
 
-        # Slice! Retrieve two new pizzas and their relative positions to the mothership
-        pizza1, pizza2, pos1, pos2 = slice_pizza(pizza)
+        # Slice! Retrieve two new pizzas and their relpositions to the mothership
+        pizza1, pizza2, pos1, pos2 = slice_pizza(pizza, pos, idx, is_rows=side)
 
         # Recursify ;-) 
         divide(pos1, pizza1, slices)

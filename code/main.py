@@ -1,17 +1,11 @@
 import numpy as np
-from funcs import *
-from splitting import *
+from data import R, C, L, H, A
+from knut import divide 
 
-R, C, L, H, A = read_pizza('../pizzas/example.in')
+pizza = A.copy()
+pos = [[0,0],[R,C]]
+slices = []
+divide(pizza, pos, slices)
 
-print(A)
-B = remove_slice_copy(A,[0,1],[0,1])
-print(B)
-print(count_tomatoes(A))
-print(count_tomatoes(B))
-
-L,R,L_pos,R_pos = slice(A, [[0,0],[2,4]] ,1)
-print(L)
-print(R)
-print(L_pos)
-print(R_pos)
+for s in slices: 
+    print(s)
