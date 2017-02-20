@@ -28,7 +28,7 @@ def count_tomatoes(arr):
 def count_mushrooms(arr):
     return arr.size - sum(arr)
 
-def is_vlaid(arr, L, H):
+def is_valid(arr, L, H):
 
     if count_tomatoes(arr) < L:
         return False
@@ -40,7 +40,3 @@ def is_vlaid(arr, L, H):
         return False
 
     return True
-
-
-
-
