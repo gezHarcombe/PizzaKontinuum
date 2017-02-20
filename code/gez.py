@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from funcs import count_tomatoes, count_mushrooms, read_pizza
+from data import L
 
 """ Function takes a slice and returns ratio of the rarer ingredient to 
     the more abundant ingredient
@@ -45,13 +46,12 @@ def is_too_small(arr):
 
 """ TEST CASE FOR ratio(arr)
 
-print(ratio(A)) """
-
+print(ratio(A))
+"""
 """ TEST CASE FOR is_too_small(arr)
 
 print(is_too_small(A))
 
 small_slice = np.array([0, 0, 1])
 print(is_too_small(small_slice));
-
 """
