@@ -32,6 +32,6 @@ def slice_pizza( pizza, pos, idx, is_rows=True):
     else:
         L = pizza[ :, :idx]
         R = pizza[ :, idx:]
-        L_pos = 0
-        R_pos = 1
+        L_pos = [ pos[0] , [ pos[1][0], pos[0][1]+idx] ]
+        R_pos = [ [pos[0][0], pos[0][1]+idx], pos[1] ]
     return L, R, L_pos, R_pos
