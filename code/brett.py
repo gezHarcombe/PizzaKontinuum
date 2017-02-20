@@ -35,6 +35,6 @@ def get_slice_pos(arr):
 # work out the score for the slice by adding the left and right slice ratios
 def get_slice_cut_score(arr, length, slice_point, axis):
     if axis == 0:
-        return ratio(arr[0:slice_point,:]) + ratio(arr[slice_point:length,:])
+        return ratio(arr[ :slice_point,:]) + ratio(arr[ slice_point:, :])
     else:
-        return ratio(arr[:,0:slice_point]) + ratio(arr[:,slice_point:length])
+        return ratio(arr[ :, :slice_point]) + ratio(arr[ :, slice_point:])
