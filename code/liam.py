@@ -17,7 +17,7 @@ def remove_slice(pizza,rows,cols):
     pizza[ rows[0]:rows[1]+1, cols[0]:cols[1]+1 ]= -1e-50
     return pizza
 
-def slice( pizza, pos, idx, is_rows=True):
+def slice_pizza( pizza, pos, idx, is_rows=True):
     """
     pizza : np 2d array, pizza
     pos: [[r1,c1],[r2,c2]], positions of lower left and upper right

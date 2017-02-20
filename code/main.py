@@ -10,7 +10,7 @@ print(B)
 print(count_tomatoes(A))
 print(count_tomatoes(B))
 
-L,R,L_pos,R_pos = slice(A, [[0,0],[3,5]] ,1)
+L,R,L_pos,R_pos = slice(A, [[0,0],[2,4]] ,1)
 print(L)
 print(R)
 print(L_pos)
