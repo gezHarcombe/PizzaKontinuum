@@ -17,7 +17,7 @@ def read_pizza(filename):
             if row[j] == 'T':
                 A[i,j] = 1
             else:
-                A[i,j] = 2
+                A[i,j] = 0
     f.close()
 
     return R, C, L, H, A
@@ -26,3 +26,9 @@ def remove_slice( pizza, rows, cols):
     result = np.copy(pizza)
     result[ rows[0]:rows[1], cols[0]:cols[1]] = 0
     return result
+
+def count_tomatoes(arr):
+    return sum(arr)
+
+def count_mushrooms(arr):
+    return arr.size - sum(arr)
