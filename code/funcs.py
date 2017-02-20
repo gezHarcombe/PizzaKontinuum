@@ -5,10 +5,10 @@ def read_pizza(filename):
     f = open(filename, 'r')
 
     info = f.readline().split()
-    R = int(info[0]) 
-    C = int(info[1]) 
-    L = int(info[2]) 
-    H = int(info[3]) 
+    R = int(info[0])
+    C = int(info[1])
+    L = int(info[2])
+    H = int(info[3])
 
     A = np.empty((R, C), dtype=int)
     for i in range(R):
