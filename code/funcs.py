@@ -27,3 +27,20 @@ def count_tomatoes(arr):
 
 def count_mushrooms(arr):
     return arr.size - sum(arr)
+
+def is_vlaid(arr, L, H):
+
+    if count_tomatoes(arr) < L:
+        return False
+
+    if count_mushrooms(arr) < L:
+        return False
+
+    if np.size(arr) > H:
+        return False
+
+    return True
+
+
+
+
