@@ -1,4 +1,4 @@
 #! /bin/bash
 
-python main.py $1 > $1.out
-python score.py $1
+python3 main.py $1 > $1.out
+python3 score.py $1
