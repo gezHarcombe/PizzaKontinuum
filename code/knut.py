@@ -18,7 +18,6 @@ def divide(pizza, pos, slices):
     # Pizza is small enough and has enough ingredients, save it!
     if is_valid(pizza):
         slices.append(pos)
-        print(slices)
         return 
 
     # Pizza is too small to be a slice, give up.
@@ -34,5 +33,5 @@ def divide(pizza, pos, slices):
         pizza1, pizza2, pos1, pos2 = slice_pizza(pizza, pos, idx, is_rows=side)
 
         # Recursify ;-) 
-        divide(pos1, pizza1, slices)
-        divide(pos2, pizza2, slices)
+        divide(pizza1, pos1, slices)
+        divide(pizza2, pos2, slices)
