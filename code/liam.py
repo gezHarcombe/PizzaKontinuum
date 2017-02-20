@@ -1,4 +1,5 @@
 import numpy as np
+from gez import *
 
 def remove_slice_copy( pizza, rows, cols):
     """
@@ -20,18 +21,18 @@ def remove_slice(pizza,rows,cols):
 def slice_pizza( pizza, pos, idx, is_rows=True):
     """
     pizza : np 2d array, pizza
-    pos: [[r1,c1],[r2,c2]], positions of lower left and upper right
+    pos: positions of lower left and upper right
     idx : integer, slice index (slices from 0 up to idx)
     is_rows : bool, slicing on a row index?
     """
     if( is_rows):
         L = pizza[ :idx, :]
         R = pizza[ idx:, :]
-        L_pos = [ pos[0] , [ pos[0][0]+idx, pos[1][1]] ]
-        R_pos = [ [pos[0][0]+idx,pos[0][1]] , pos[1] ]
+        L_pos = Pos( pos.r1 , pos.c1, pos.r1+idx-1, pos.c2 )
+        R_pos = Pos( pos.r1+idx, pos.c1 , pos.r2, pos.c2 )
     else:
         L = pizza[ :, :idx]
         R = pizza[ :, idx:]
-        L_pos = [ pos[0] , [ pos[1][0], pos[0][1]+idx] ]
-        R_pos = [ [pos[0][0], pos[0][1]+idx], pos[1] ]
+        L_pos = Pos( pos.r1, pos.c1, pos.r2, pos.c1+idx-1 )
+        R_pos = Pos( pos.r1, pos.c1+idx, pos.r2, pos.c2 )
     return L, R, L_pos, R_pos
