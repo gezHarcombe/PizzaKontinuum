@@ -15,18 +15,14 @@ def get_slice_pos(arr):
     best_score = 0
     # loop over all axis=0 sweeps
     for i in range(1,length):
-        print(i)
         score = get_slice_cut_score(arr, length, i, 0)
-        print(score)
         if score > best_score:
             best_score = score
             best_cut = i
             is_rows = True
     # loop over all axis=1 sweeps
     for i in range(1,width):
-        print(i)
         score = get_slice_cut_score(arr, width, i, 1)
-        print(score)
         if score > best_score:
             best_score = score
             best_cut = i
