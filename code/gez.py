@@ -3,7 +3,7 @@ import numpy as np
 from funcs import count_tomatoes, count_mushrooms
 from data import L
 
-class pos:
+class Pos:
     """ position data struction - r1, c1, r2, c2
         Usage:
         test = pos(0,0,1,2)
