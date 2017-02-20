@@ -13,24 +13,20 @@ def get_slice_pos(arr):
     width = arr.shape[1]
 
     best_score = 0
-    # loop over all axis=0 sweeps
-    for i in range(1,length):
-        if best_score == 100:
-            break
-        score = get_slice_cut_score(arr, length, i, 0)
-        if score > best_score:
-            best_score = score
-            best_cut = i
-            is_rows = True
     # loop over all axis=1 sweeps
     for i in range(1,width):
-        if best_score == 100:
-            break
         score = get_slice_cut_score(arr, width, i, 1)
         if score > best_score:
             best_score = score
             best_cut = i
             is_rows = False
+    # loop over all axis=0 sweeps
+    for i in range(1,length):
+        score = get_slice_cut_score(arr, length, i, 0)
+        if score > best_score:
+            best_score = score
+            best_cut = i
+            is_rows = True
 
     # deal with the case where every split scored zero, and the array should be binned
     to_bin = False
@@ -53,17 +49,25 @@ def get_slice_cut_score(arr, length, slice_point, axis):
         left = arr[ :, :slice_point]
         right = arr[ :, slice_point:]
 
-    if is_valid(left) or is_valid(right):
-        return 100;
-
     # check if either half of the split is too small to possibly be a valid slice
     # and give a score of zero accordingly
     if is_too_small(left):
         if is_too_small(right):
             return 0
         else:
-            return 0 + ratio(right)
+            if is_valid(right):
+                return 100
+            else:
+                return 0 + ratio(right)
     elif is_too_small(right):
-        return ratio(left) + 0
+        if is_valid(left):
+            return 100
+        else:
+            return ratio(left) + 0
     else:
-        return ratio(left) + ratio(right)
+        if is_valid(left):
+            return 100 + ratio(right)
+        if is_valid(right):
+            return 100 + ratio(left)
+        else:
+            return ratio(left) + ratio(right)

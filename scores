@@ -13,3 +13,10 @@
 ## Liam:
 # Greedy + entropy
 > big - 0.685386
+
+## Brett: Advanced greedy swapped axis which evalutes the best greedy option##
+> example - 1.0
+> small - 1.0
+> medium - 0.9396
+> big - 0.687369
+
